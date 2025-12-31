@@ -2,360 +2,224 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scripts & Executores</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* ================= RESET ================= */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-/* ================= THEME ================= */
 :root{
   --bg:#0b0b0f;
-  --bg2:#12121a;
-  --card:#1b1b26;
-  --text:#ffffff;
-  --sub:#b5b5c7;
+  --card:#13131a;
+  --text:#eaeaf0;
   --accent:#7c7cff;
-  --accent2:#00ffcc;
+  --danger:#ff4d4d;
 }
-
 .light{
   --bg:#f2f2f7;
-  --bg2:#ffffff;
   --card:#ffffff;
-  --text:#000000;
-  --sub:#444;
+  --text:#111;
+  --accent:#4f46e5;
 }
-
-/* ================= BODY ================= */
+*{box-sizing:border-box;font-family:Inter,system-ui}
 body{
-  background:linear-gradient(135deg,var(--bg),var(--bg2));
+  margin:0;
+  background:var(--bg);
   color:var(--text);
-  min-height:100vh;
-  overflow-x:hidden;
+}
+.hidden{display:none}
+
+/* animações */
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
-/* ================= TERMS ================= */
-#terms{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.9);
+.container{
+  min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  z-index:999;
-}
-
-.terms-box{
-  background:var(--card);
-  max-width:700px;
-  width:90%;
-  padding:30px;
-  border-radius:20px;
-  animation:fadeUp .6s ease;
-}
-
-.terms-box h2{
-  text-align:center;
-  margin-bottom:15px;
-}
-
-.terms-text{
-  font-size:14px;
-  color:var(--sub);
-  line-height:1.6;
-  max-height:260px;
-  overflow:auto;
-  margin-bottom:20px;
-}
-
-.terms-actions{
-  display:flex;
-  gap:15px;
-}
-
-.terms-actions button{
-  flex:1;
-  padding:12px;
-  border:none;
-  border-radius:12px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-.accept{background:var(--accent);color:#000;}
-.reject{background:#ff4d4d;color:#000;}
-
-/* ================= HEADER ================= */
-header{
-  padding:20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-header h1{
-  font-size:22px;
-}
-
-header button{
-  background:var(--card);
-  color:var(--text);
-  border:none;
-  padding:10px 14px;
-  border-radius:12px;
-  cursor:pointer;
-}
-
-/* ================= MAIN ================= */
-main{
   padding:20px;
 }
 
-/* ================= BUTTONS ================= */
-.big-btn{
+.card{
+  background:var(--card);
   width:100%;
-  padding:20px;
-  border-radius:30px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#000;
-  font-size:20px;
-  font-weight:bold;
-  border:none;
-  cursor:pointer;
-  animation:pulse 2s infinite;
-}
-
-/* ================= SEARCH ================= */
-.search{
-  margin:20px 0;
-}
-.search input{
-  width:100%;
-  padding:14px;
-  border-radius:14px;
-  border:none;
-  background:var(--card);
-  color:var(--text);
-}
-
-/* ================= LIST ================= */
-.list{
-  display:grid;
-  gap:15px;
-}
-
-.item{
-  background:var(--card);
-  padding:18px;
+  max-width:900px;
   border-radius:18px;
-  animation:fadeUp .4s ease;
+  padding:25px;
+  animation:fadeIn .4s ease;
+  box-shadow:0 0 40px rgba(0,0,0,.6);
 }
 
-.item h3{
+h1,h2{margin-top:0}
+
+button{
+  border:none;
+  border-radius:14px;
+  padding:14px 22px;
+  background:var(--accent);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  transition:.25s;
+}
+button:hover{transform:scale(1.05)}
+button.danger{background:var(--danger)}
+button.outline{
+  background:transparent;
+  border:1px solid var(--accent);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+}
+
+.script{
+  background:rgba(255,255,255,.04);
+  border-radius:14px;
+  padding:15px;
+}
+
+textarea{
+  width:100%;
+  background:#000;
+  color:#0f0;
+  border:none;
+  border-radius:10px;
+  padding:10px;
+  resize:none;
+}
+
+.top{
   display:flex;
   justify-content:space-between;
   align-items:center;
-}
-
-.item small{
-  color:var(--sub);
-}
-
-.actions{
-  margin-top:10px;
-  display:flex;
   gap:10px;
 }
 
-.actions button{
-  flex:1;
-  padding:10px;
+input{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
   border:none;
-  border-radius:12px;
-  cursor:pointer;
 }
 
-.copy{background:var(--accent);}
-.fav{background:#ffcc00;}
-.open{background:#00ffcc;}
-
-.code{
-  background:#000;
-  padding:15px;
-  border-radius:12px;
-  font-size:13px;
-  margin-top:10px;
-  display:none;
-  white-space:pre-wrap;
+.copy{
+  background:#22c55e;
 }
 
-/* ================= FOOTER ================= */
-footer{
-  margin-top:40px;
-  padding:30px;
-  text-align:center;
-}
-
-footer img{
-  width:40px;
-  margin-bottom:10px;
-}
-
-/* ================= ANIMATIONS ================= */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
-}
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(124,124,255,.6)}
-  70%{box-shadow:0 0 0 25px rgba(124,124,255,0)}
-  100%{box-shadow:0 0 0 0 rgba(124,124,255,0)}
+.fav{
+  background:#facc15;
+  color:#000;
 }
 </style>
 </head>
 
 <body>
 
-<!-- TERMS -->
-<div id="terms">
-  <div class="terms-box">
-    <h2>⚠️ Termos de Uso</h2>
-    <div class="terms-text">
-      O uso de scripts pode resultar em banimento permanente.<br>
-      Scripts violam regras de jogos online.<br>
-      Você assume todos os riscos.<br>
-      Nenhum script é garantido.<br>
-      Executores podem conter falhas.<br>
-      Alguns exigem KEY.<br>
-      Anúncios podem ser exibidos.<br>
-      Conteúdo apenas educacional.<br>
-      Não nos responsabilizamos.<br>
-      O usuário é o único responsável.<br>
-      Uso consciente é essencial.<br>
-      Scripts podem parar de funcionar.<br>
-      Atualizações não são garantidas.<br>
-      Links externos não são nossos.<br>
-      Nenhuma garantia de segurança.<br>
-      Use por sua conta e risco.<br>
-      Ao aceitar, você concorda.<br>
-      Leu e entendeu tudo acima.<br>
-      Está ciente dos riscos.<br>
-      Aceita integralmente.
-    </div>
-    <div class="terms-actions">
-      <button class="accept" onclick="acceptTerms()">Li e Aceito</button>
-      <button class="reject" onclick="rejectTerms()">Não Aceito</button>
-    </div>
+<!-- TERMOS -->
+<div class="container" id="terms">
+  <div class="card">
+    <h1>⚠️ Aviso Importante</h1>
+    <p>
+O uso de scripts, exploits e executores pode resultar em banimento permanente da sua conta.<br>
+Você assume total responsabilidade pelo uso.<br>
+Scripts podem conter riscos de segurança.<br>
+Não garantimos funcionamento.<br>
+Não nos responsabilizamos por perdas.<br>
+Você concorda que leu e entendeu.<br>
+Você concorda que aceita os riscos.<br>
+Você concorda que não culpará o site.<br>
+Você concorda que scripts podem parar.<br>
+Você concorda que anúncios externos existem.<br>
+Você concorda que chaves podem ser exigidas.<br>
+Você concorda que há risco de malware.<br>
+Você concorda que a conta é sua responsabilidade.<br>
+Você concorda com tudo acima.
+    </p>
+    <label>
+      <input type="checkbox" id="accept"> Li e aceito os termos
+    </label>
+    <br><br>
+    <button onclick="acceptTerms()">Aceitar</button>
+    <button class="danger" onclick="location.href='https://google.com'">Não Aceito</button>
   </div>
 </div>
 
-<header>
-  <h1>Scripts / Executores</h1>
-  <button onclick="toggleTheme()">🌗 Tema</button>
-</header>
+<!-- APP -->
+<div class="container hidden" id="app">
+  <div class="card">
 
-<main id="app" style="display:none">
+    <div class="top">
+      <h1>📜 Scripts & Executores</h1>
+      <button class="outline" onclick="toggleTheme()">🌙 / ☀️</button>
+    </div>
 
-<button class="big-btn">SCRIPT</button>
+    <input placeholder="Pesquisar script..." oninput="search(this.value)">
 
-<div class="search">
-  <input type="text" placeholder="Pesquisar script..." oninput="search(this.value)">
+    <br><br>
+
+    <div class="grid" id="list">
+
+      <div class="script" data-name="Zinner Hub">
+        <h3>Zinner Hub</h3>
+        <small>Última atualização: 2025</small>
+        <textarea rows="3" readonly>loadstring(game:HttpGet("https://github.com/HoangNguyenk8/Roblox/blob/main/BF-Main.luau?raw=true"))()</textarea>
+        <br>
+        <button class="copy" onclick="copy(this)">📋 Copiar</button>
+        <button class="fav" onclick="fav(this)">⭐ Favorito</button>
+      </div>
+
+      <div class="script" data-name="FPS Boost">
+        <h3>FPS BOOST</h3>
+        <small>Última atualização: 2025</small>
+        <textarea rows="3" readonly>loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/FPSBooster.lua"))()</textarea>
+        <br>
+        <button class="copy" onclick="copy(this)">📋 Copiar</button>
+        <button class="fav" onclick="fav(this)">⭐ Favorito</button>
+      </div>
+
+    </div>
+
+    <br>
+    <a href="https://discord.gg/th9TSA7q" target="_blank">
+      <button style="width:100%">💬 Entrar no Discord</button>
+    </a>
+
+  </div>
 </div>
 
-<div class="list" id="list"></div>
-
-</main>
-
-<footer>
-  <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png">
-  <p>Todos os scripts e executores estão no Discord</p>
-  <a href="https://discord.gg/th9TSA7q" target="_blank">Entrar no Discord</a>
-</footer>
-
 <script>
-/* ================= DATA ================= */
-const scripts = [
-  {
-    name:"Zinner Hub",
-    update:"2025-01-10",
-    code:`loadstring(game:HttpGet("https://github.com/HoangNguyenk8/Roblox/blob/main/BF-Main.luau?raw=true"))()`
-  },
-  {
-    name:"Hoho Hub",
-    update:"2025-01-08",
-    code:`loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()`
-  },
-  {
-    name:"FPS BOOST",
-    update:"2025-01-05",
-    code:`-- Made by RIP#6666
-_G.Settings = {...}`
-  }
-];
+if(localStorage.accepted)showApp()
 
-/* ================= TERMS ================= */
 function acceptTerms(){
-  localStorage.setItem("terms","yes");
-  document.getElementById("terms").style.display="none";
-  document.getElementById("app").style.display="block";
+  if(!document.getElementById('accept').checked)return alert("Aceite os termos")
+  localStorage.accepted=true
+  showApp()
 }
-function rejectTerms(){
-  window.location.href="https://google.com";
+function showApp(){
+  terms.classList.add('hidden')
+  app.classList.remove('hidden')
 }
-if(localStorage.getItem("terms")==="yes"){
-  acceptTerms();
-}
-
-/* ================= THEME ================= */
 function toggleTheme(){
-  document.body.classList.toggle("light");
+  document.body.classList.toggle('light')
 }
-
-/* ================= RENDER ================= */
-const list = document.getElementById("list");
-function render(data){
-  list.innerHTML="";
-  data.forEach((s,i)=>{
-    const fav = localStorage.getItem("fav_"+s.name);
-    list.innerHTML+=`
-      <div class="item">
-        <h3>${s.name} ${fav?"⭐":""}</h3>
-        <small>Última atualização: ${s.update}</small>
-        <div class="actions">
-          <button class="open" onclick="toggleCode(${i})">Abrir</button>
-          <button class="copy" onclick="copy(${i})">Copiar</button>
-          <button class="fav" onclick="favorite('${s.name}')">Favorito</button>
-        </div>
-        <div class="code" id="code${i}">${s.code}</div>
-      </div>`;
-  });
+function copy(btn){
+  const txt=btn.parentElement.querySelector('textarea').value
+  navigator.clipboard.writeText(txt)
+  btn.innerText="✔ Copiado"
+  setTimeout(()=>btn.innerText="📋 Copiar",1500)
 }
-render(scripts);
-
-/* ================= ACTIONS ================= */
-function toggleCode(i){
-  const c=document.getElementById("code"+i);
-  c.style.display=c.style.display==="block"?"none":"block";
-}
-function copy(i){
-  navigator.clipboard.writeText(scripts[i].code);
-  alert("Código copiado!");
-}
-function favorite(name){
-  localStorage.setItem("fav_"+name,true);
-  render(scripts);
+function fav(btn){
+  btn.innerText="⭐ Favorito"
 }
 function search(v){
-  render(scripts.filter(s=>s.name.toLowerCase().includes(v.toLowerCase())));
+  document.querySelectorAll('.script').forEach(s=>{
+    s.style.display=s.dataset.name.toLowerCase().includes(v.toLowerCase())?'block':'none'
+  })
 }
 </script>
-
 </body>
 </html>
