@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scripts & Executores</title>
+
+<style>
+/* ================= RESET ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ================= THEME ================= */
+:root{
+  --bg:#0b0b0f;
+  --bg2:#12121a;
+  --card:#1b1b26;
+  --text:#ffffff;
+  --sub:#b5b5c7;
+  --accent:#7c7cff;
+  --accent2:#00ffcc;
+}
+
+.light{
+  --bg:#f2f2f7;
+  --bg2:#ffffff;
+  --card:#ffffff;
+  --text:#000000;
+  --sub:#444;
+}
+
+/* ================= BODY ================= */
+body{
+  background:linear-gradient(135deg,var(--bg),var(--bg2));
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ================= TERMS ================= */
+#terms{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.terms-box{
+  background:var(--card);
+  max-width:700px;
+  width:90%;
+  padding:30px;
+  border-radius:20px;
+  animation:fadeUp .6s ease;
+}
+
+.terms-box h2{
+  text-align:center;
+  margin-bottom:15px;
+}
+
+.terms-text{
+  font-size:14px;
+  color:var(--sub);
+  line-height:1.6;
+  max-height:260px;
+  overflow:auto;
+  margin-bottom:20px;
+}
+
+.terms-actions{
+  display:flex;
+  gap:15px;
+}
+
+.terms-actions button{
+  flex:1;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.accept{background:var(--accent);color:#000;}
+.reject{background:#ff4d4d;color:#000;}
+
+/* ================= HEADER ================= */
+header{
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+header h1{
+  font-size:22px;
+}
+
+header button{
+  background:var(--card);
+  color:var(--text);
+  border:none;
+  padding:10px 14px;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+/* ================= MAIN ================= */
+main{
+  padding:20px;
+}
+
+/* ================= BUTTONS ================= */
+.big-btn{
+  width:100%;
+  padding:20px;
+  border-radius:30px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#000;
+  font-size:20px;
+  font-weight:bold;
+  border:none;
+  cursor:pointer;
+  animation:pulse 2s infinite;
+}
+
+/* ================= SEARCH ================= */
+.search{
+  margin:20px 0;
+}
+.search input{
+  width:100%;
+  padding:14px;
+  border-radius:14px;
+  border:none;
+  background:var(--card);
+  color:var(--text);
+}
+
+/* ================= LIST ================= */
+.list{
+  display:grid;
+  gap:15px;
+}
+
+.item{
+  background:var(--card);
+  padding:18px;
+  border-radius:18px;
+  animation:fadeUp .4s ease;
+}
+
+.item h3{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.item small{
+  color:var(--sub);
+}
+
+.actions{
+  margin-top:10px;
+  display:flex;
+  gap:10px;
+}
+
+.actions button{
+  flex:1;
+  padding:10px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.copy{background:var(--accent);}
+.fav{background:#ffcc00;}
+.open{background:#00ffcc;}
+
+.code{
+  background:#000;
+  padding:15px;
+  border-radius:12px;
+  font-size:13px;
+  margin-top:10px;
+  display:none;
+  white-space:pre-wrap;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  margin-top:40px;
+  padding:30px;
+  text-align:center;
+}
+
+footer img{
+  width:40px;
+  margin-bottom:10px;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(124,124,255,.6)}
+  70%{box-shadow:0 0 0 25px rgba(124,124,255,0)}
+  100%{box-shadow:0 0 0 0 rgba(124,124,255,0)}
+}
+</style>
+</head>
+
+<body>
+
+<!-- TERMS -->
+<div id="terms">
+  <div class="terms-box">
+    <h2>⚠️ Termos de Uso</h2>
+    <div class="terms-text">
+      O uso de scripts pode resultar em banimento permanente.<br>
+      Scripts violam regras de jogos online.<br>
+      Você assume todos os riscos.<br>
+      Nenhum script é garantido.<br>
+      Executores podem conter falhas.<br>
+      Alguns exigem KEY.<br>
+      Anúncios podem ser exibidos.<br>
+      Conteúdo apenas educacional.<br>
+      Não nos responsabilizamos.<br>
+      O usuário é o único responsável.<br>
+      Uso consciente é essencial.<br>
+      Scripts podem parar de funcionar.<br>
+      Atualizações não são garantidas.<br>
+      Links externos não são nossos.<br>
+      Nenhuma garantia de segurança.<br>
+      Use por sua conta e risco.<br>
+      Ao aceitar, você concorda.<br>
+      Leu e entendeu tudo acima.<br>
+      Está ciente dos riscos.<br>
+      Aceita integralmente.
+    </div>
+    <div class="terms-actions">
+      <button class="accept" onclick="acceptTerms()">Li e Aceito</button>
+      <button class="reject" onclick="rejectTerms()">Não Aceito</button>
+    </div>
+  </div>
+</div>
+
+<header>
+  <h1>Scripts / Executores</h1>
+  <button onclick="toggleTheme()">🌗 Tema</button>
+</header>
+
+<main id="app" style="display:none">
+
+<button class="big-btn">SCRIPT</button>
+
+<div class="search">
+  <input type="text" placeholder="Pesquisar script..." oninput="search(this.value)">
+</div>
+
+<div class="list" id="list"></div>
+
+</main>
+
+<footer>
+  <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png">
+  <p>Todos os scripts e executores estão no Discord</p>
+  <a href="https://discord.gg/th9TSA7q" target="_blank">Entrar no Discord</a>
+</footer>
+
+<script>
+/* ================= DATA ================= */
+const scripts = [
+  {
+    name:"Zinner Hub",
+    update:"2025-01-10",
+    code:`loadstring(game:HttpGet("https://github.com/HoangNguyenk8/Roblox/blob/main/BF-Main.luau?raw=true"))()`
+  },
+  {
+    name:"Hoho Hub",
+    update:"2025-01-08",
+    code:`loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()`
+  },
+  {
+    name:"FPS BOOST",
+    update:"2025-01-05",
+    code:`-- Made by RIP#6666
+_G.Settings = {...}`
+  }
+];
+
+/* ================= TERMS ================= */
+function acceptTerms(){
+  localStorage.setItem("terms","yes");
+  document.getElementById("terms").style.display="none";
+  document.getElementById("app").style.display="block";
+}
+function rejectTerms(){
+  window.location.href="https://google.com";
+}
+if(localStorage.getItem("terms")==="yes"){
+  acceptTerms();
+}
+
+/* ================= THEME ================= */
+function toggleTheme(){
+  document.body.classList.toggle("light");
+}
+
+/* ================= RENDER ================= */
+const list = document.getElementById("list");
+function render(data){
+  list.innerHTML="";
+  data.forEach((s,i)=>{
+    const fav = localStorage.getItem("fav_"+s.name);
+    list.innerHTML+=`
+      <div class="item">
+        <h3>${s.name} ${fav?"⭐":""}</h3>
+        <small>Última atualização: ${s.update}</small>
+        <div class="actions">
+          <button class="open" onclick="toggleCode(${i})">Abrir</button>
+          <button class="copy" onclick="copy(${i})">Copiar</button>
+          <button class="fav" onclick="favorite('${s.name}')">Favorito</button>
+        </div>
+        <div class="code" id="code${i}">${s.code}</div>
+      </div>`;
+  });
+}
+render(scripts);
+
+/* ================= ACTIONS ================= */
+function toggleCode(i){
+  const c=document.getElementById("code"+i);
+  c.style.display=c.style.display==="block"?"none":"block";
+}
+function copy(i){
+  navigator.clipboard.writeText(scripts[i].code);
+  alert("Código copiado!");
+}
+function favorite(name){
+  localStorage.setItem("fav_"+name,true);
+  render(scripts);
+}
+function search(v){
+  render(scripts.filter(s=>s.name.toLowerCase().includes(v.toLowerCase())));
+}
+</script>
+
+</body>
+</html>
